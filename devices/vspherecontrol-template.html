@@ -1,0 +1,19 @@
+<script id="vSphereControl-template" type="text/template">
+	<li class="sortable device no-header">
+      
+    <label data-bind="text: name, tooltip: $data.labelTooltipHtml" class="device-label"></label>    	
+    
+    <div class="buttons" style="float: right;margin-top: -4px; margin-bottom: -4px;">
+
+      <span class="val" data-bind="text: state" style="margin:0;line-height: 38px;margin-right: 4px;"></span>
+
+      <div style="margin: 0; float: right;">
+        <a class="ui-btn ui-mini ui-btn-inline ui-corner-all" data-bind="click: onPowerOn" style="margin-top: 1px; margin-bottom: 1px;margin-left: 4px;margin-right: 0;">PowerOn</a>
+        <a class="ui-btn ui-mini ui-btn-inline ui-corner-all" data-bind="click: onPowerOff" style="margin-top: 1px; margin-bottom: 1px;margin-left: 4px;margin-right: 0;">PowerOff</a>
+        <a class="ui-btn ui-mini ui-btn-inline ui-corner-all" data-bind="click: onPowerRestart" style="margin-top: 1px; margin-bottom: 1px;margin-left: 4px;margin-right: 0;">Restart</a>
+      </div>
+    
+    </div>
+      
+  </li>
+</script

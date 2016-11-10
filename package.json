@@ -1,0 +1,34 @@
+{
+  "name": "pimatic-vsphere",
+  "description": "manage vmware vsphere virtual machines",
+  "author": "Thorsten Reichelt (thost96) <info@thorstenreichelt.de>",
+  "main": "vsphere",
+  "files": [
+    "vsphere.coffee",
+    "README.md",
+    "History.md",
+    "device-config-schema.coffee",
+    "vsphere-config-schema.coffee",
+    "LICENSE",
+    "devices"
+  ],
+  "version": "0.1.0",
+  "license": "GPL-2.0",
+  "homepage": "http://github.com/thost96/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/thost96/pimatic-vsphere.git"
+  },
+  "configSchema": "vsphere-config-schema.coffee",
+  "dependencies": {
+    "node-ssh-exec": "^0.1.1",
+    "vsphere": "0.0.1"
+  },
+  "peerDependencies": {
+    "pimatic": ">=0.8.0 <1.0.0"
+  },
+  "engines": {
+    "node": ">0.8.x",
+    "npm": ">1.1.x"
+  }
+}
