@@ -18,6 +18,7 @@ The plugin has the following configuration properties:
 | host              | -        | String  | Hostname or IP address of the vSphere Host|
 | user  			| root 	   | String  | vsphere host admin user |
 | password 			| - 	   | String  | Password for the user specified |
+| keyFile			| - 	   | String  | Path to ssh key file for private key auth (password is also required!) |
 | ssl				| false	   | Boolean | verify ssl certificate, default false |
 | debug             | false    | Boolean | Debug mode. Writes debug messages to the pimatic log, if set to true |
 
@@ -31,18 +32,15 @@ This manual configuration can be done, if nessesary:
 The vSphereControl displays the powerState of the virtual machine and three buttons for PowerOn, PowerOff and Restart. 
 
 	{
-			"id": "wmi1",
-			"class": "WmiSensor",
-			"name": "WMI Sensor",
-			"host": "",			
-			"username": "",
-			"password": "",
-			"command": ""
+			"id": "vpshere",
+			"class": "vSphereControl",
+			"name": "VM 11",
+			"vmid": "11"
 	}
 
 | Property          | Default  | Type    | Description                                 |
 |:------------------|:---------|:--------|:--------------------------------------------|
-| state             | -        | String  | virtual machine power state |
+| state             | -        | String  | virtual machine power state. Will be created automatically |
 | vmid	 			| - 	   | String  | virtual machine identifier used for power actions |
 | interval 			| 60000    | Number  | The time interval in milliseconds at which the powerState is updated |
 
@@ -51,6 +49,7 @@ The vSphereControl displays the powerState of the virtual machine and three butt
 
 * Add virtual machine performance monitoring device
 * Add vsphere control device
+* Add function for getting license info 
 
 ## History
 

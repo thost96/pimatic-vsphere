@@ -12,6 +12,10 @@ module.exports = {
     password:
       description: "password for specified user"
       type: "string"
+    keyFile:
+      description: "path to ssh key file"
+      type: "string"
+      default: ""
     ssl:
       description: "sslVerify"
       type: "boolean"

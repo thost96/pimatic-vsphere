@@ -4,6 +4,7 @@ module.exports = (env) ->
   _ = env.require 'lodash'
   nvs = require 'vsphere'
   exec = require 'node-ssh-exec'
+  fs = require 'fs'
   
   class vSphereClient extends env.plugins.Plugin
 
@@ -18,10 +19,11 @@ module.exports = (env) ->
       @host   = @config.host
       @user   = @config.user
       @pass   = @config.password
+      @key  = @config.keyFile if @config.keyFile
       @ssl    = @config.ssl
       debug  = @config.debug
-
-      @vc = new nvs.Client(@host, @user, @pass, @ssl) 
+      
+      @vc = new nvs.Client(@host, @user, @pass, @ssl)
 
       deviceConfigDef = require("./device-config-schema")
       @framework.deviceManager.registerDeviceClass 'vSphereControl', 
@@ -120,11 +122,18 @@ module.exports = (env) ->
 
     sshCommand: (@command) ->
       #https://www.npmjs.com/package/node-ssh-exec
-      config = {
-        host: @plugin.host,
-        username: @plugin.user,
-        password: @plugin.pass
-      }
+      if _.isEmpty(@key)
+        config = {
+          host: @plugin.host,
+          username: @plugin.user,
+          password: @plugin.pass
+        }
+      else
+        config = {
+          host: @plugin.host,
+          username: @plugin.user,
+          privateKey: fs.readFileSync(@key)
+        }
       exec(config, @command, (error, response) ->
           if error 
             env.logger.error error

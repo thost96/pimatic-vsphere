@@ -24,6 +24,5 @@ $(document).on( "templateinit", (event) ->
     onPowerRestart: ->
       $.get("/api/device/#{@id}/powerAction?action=restart")
    
-  # register the item-class
   pimatic.templateClasses['vSphereControl'] = vSphereControlItem
 )  
