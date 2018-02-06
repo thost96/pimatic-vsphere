@@ -2,6 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/pimatic-vsphere.svg)](http://badge.fury.io/js/pimatic-vsphere)
 [![dependencies status](https://david-dm.org/thost96/pimatic-vsphere/status.svg)](https://david-dm.org/thost96/pimatic-vsphere)
+[![Build Status](https://travis-ci.org/thost96/pimatic-vsphere.svg?branch=master)](https://travis-ci.org/thost96/pimatic-vsphere)
 
 A pimatic plugin to control virtual machines on remote vmware vsphere host. 
 
